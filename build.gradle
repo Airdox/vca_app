@@ -1,6 +1,8 @@
+// build.gradle (Projekt-Ebene)
+
 buildscript {
     ext.kotlin_version = '1.9.0'
-    repositories {
+    repositories { // DIESER BLOCK MUSS HIER BLEIBEN!
         google()
         mavenCentral()
     }
@@ -10,12 +12,8 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+// allprojects { ... } DIESER BLOCK MUSS KOMPLETT ENTFERNT WERDEN!
+// Er sollte NICHT in dieser Datei stehen.
 
 tasks.register('clean', Delete) {
     delete rootProject.buildDir
