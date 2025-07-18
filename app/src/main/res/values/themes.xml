@@ -19,6 +19,14 @@
         <item name="colorOnSurface">@color/text_primary</item>
     </style>
 
+    <!-- Theme for welcome/splash activities without action bar -->
+    <style name="Theme.VoiceCloning.NoActionBar" parent="Theme.VoiceCloning">
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
     <!-- Custom toolbar style -->
     <style name="CustomToolbar" parent="Widget.Material3.Toolbar">
         <item name="android:background">@color/primary_color</item>
