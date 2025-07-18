@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.yourcompany.myvoiceapp' // <<< HIER DEINEN PAKETNAMEN EINFÜGEN!
+    namespace 'com.airdox.voicecloning'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.yourcompany.myvoiceapp" // <<< HIER AUCH DEINEN PAKETNAMEN EINFÜGEN!
+        applicationId "com.airdox.voicecloning"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -29,6 +29,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -36,4 +41,47 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
+    
+    // Lifecycle components
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+    
+    // Audio recording and processing
+    implementation 'androidx.media:media:1.7.0'
+    
+    // Machine Learning
+    implementation 'org.tensorflow:tensorflow-lite:2.13.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.13.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+    
+    // Audio processing libraries
+    implementation 'com.github.wendykierp:JTransforms:3.1'
+    
+    // File handling
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+    
+    // Permissions
+    implementation 'androidx.activity:activity-ktx:1.8.2'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    
+    // UI components
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    
+    // Charts for audio visualization
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    
+    // JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Preferences
+    implementation 'androidx.preference:preference-ktx:1.2.1'
 }
