@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Model Management Category -->
+    <PreferenceCategory android:title="Modell-Verwaltung">
+
+        <Preference
+            android:key="model_info"
+            android:title="Modell-Information"
+            android:summary="Zeige Details zum trainierten Stimmmodell"
+            android:icon="@drawable/ic_info" />
+
+        <Preference
+            android:key="delete_model"
+            android:title="Modell löschen"
+            android:summary="Lösche das trainierte Stimmmodell"
+            android:icon="@drawable/ic_delete" />
+
+    </PreferenceCategory>
+
+    <!-- Audio Quality Category -->
+    <PreferenceCategory android:title="@string/settings_audio_quality">
+
+        <ListPreference
+            android:key="sample_rate"
+            android:title="@string/settings_sample_rate"
+            android:summary="Wähle die Audio-Sample-Rate"
+            android:entries="@array/sample_rate_entries"
+            android:entryValues="@array/sample_rate_values"
+            android:defaultValue="44100"
+            android:icon="@drawable/ic_audiotrack" />
+
+        <ListPreference
+            android:key="bit_rate"
+            android:title="@string/settings_bit_rate"
+            android:summary="Wähle die Audio-Bit-Rate"
+            android:entries="@array/bit_rate_entries"
+            android:entryValues="@array/bit_rate_values"
+            android:defaultValue="128"
+            android:icon="@drawable/ic_high_quality" />
+
+    </PreferenceCategory>
+
+    <!-- Model Quality Category -->
+    <PreferenceCategory android:title="@string/settings_model_quality">
+
+        <ListPreference
+            android:key="model_quality"
+            android:title="Modell-Qualität"
+            android:summary="Wähle die Qualität des Stimmmodells"
+            android:entries="@array/model_quality_entries"
+            android:entryValues="@array/model_quality_values"
+            android:defaultValue="high"
+            android:icon="@drawable/ic_psychology" />
+
+        <ListPreference
+            android:key="processing_power"
+            android:title="@string/settings_processing_power"
+            android:summary="Wähle die Verarbeitungsleistung"
+            android:entries="@array/processing_power_entries"
+            android:entryValues="@array/processing_power_values"
+            android:defaultValue="balanced"
+            android:icon="@drawable/ic_speed" />
+
+    </PreferenceCategory>
+
+    <!-- Storage Category -->
+    <PreferenceCategory android:title="Speicher">
+
+        <Preference
+            android:key="storage_usage"
+            android:title="Speicherverbrauch"
+            android:summary="Zeige verwendeten Speicherplatz"
+            android:icon="@drawable/ic_storage" />
+
+        <Preference
+            android:key="clear_cache"
+            android:title="Cache leeren"
+            android:summary="Lösche temporäre Dateien"
+            android:icon="@drawable/ic_clear" />
+
+    </PreferenceCategory>
+
+    <!-- About Category -->
+    <PreferenceCategory android:title="Über die App">
+
+        <Preference
+            android:key="app_version"
+            android:title="App-Version"
+            android:summary="Version 1.0.0"
+            android:icon="@drawable/ic_info" />
+
+        <Preference
+            android:key="about"
+            android:title="Über VoiceCloning Pro"
+            android:summary="Informationen über die App"
+            android:icon="@drawable/ic_info" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

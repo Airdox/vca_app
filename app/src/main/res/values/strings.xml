@@ -1,3 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MyVoiceCloningApp</string> </resources>
+    <string name="app_name">VoiceCloning Pro</string>
+    
+    <!-- Main Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_record">Aufnahme</string>
+    <string name="nav_train">Training</string>
+    <string name="nav_tts">Text zu Sprache</string>
+    <string name="nav_settings">Einstellungen</string>
+    
+    <!-- Dashboard -->
+    <string name="dashboard_title">Willkommen bei VoiceCloning Pro</string>
+    <string name="dashboard_subtitle">Erstellen Sie Ihr persönliches Stimmmodell</string>
+    <string name="dashboard_record_card_title">Stimme aufnehmen</string>
+    <string name="dashboard_record_card_desc">Nehmen Sie hochwertige Audioaufnahmen auf</string>
+    <string name="dashboard_train_card_title">Modell trainieren</string>
+    <string name="dashboard_train_card_desc">Trainieren Sie Ihr persönliches Stimmmodell</string>
+    <string name="dashboard_tts_card_title">Text zu Sprache</string>
+    <string name="dashboard_tts_card_desc">Verwenden Sie Ihr trainiertes Stimmmodell</string>
+    
+    <!-- Recording -->
+    <string name="recording_title">Stimme aufnehmen</string>
+    <string name="recording_instructions">Lesen Sie die folgenden Texte klar und deutlich vor</string>
+    <string name="recording_start">Aufnahme starten</string>
+    <string name="recording_stop">Aufnahme stoppen</string>
+    <string name="recording_play">Wiedergabe</string>
+    <string name="recording_save">Speichern</string>
+    <string name="recording_delete">Löschen</string>
+    <string name="recording_upload">Datei hochladen</string>
+    <string name="recording_enhancement">Audio-Verbesserung</string>
+    <string name="recording_noise_reduction">Rauschunterdrückung</string>
+    <string name="recording_normalization">Normalisierung</string>
+    <string name="recording_equalizer">Equalizer</string>
+    
+    <!-- Training -->
+    <string name="training_title">Modell trainieren</string>
+    <string name="training_start">Training starten</string>
+    <string name="training_progress">Trainingsfortschritt: %d%%</string>
+    <string name="training_status_preparing">Vorbereitung...</string>
+    <string name="training_status_processing">Verarbeitung...</string>
+    <string name="training_status_training">Training läuft...</string>
+    <string name="training_status_completed">Training abgeschlossen!</string>
+    <string name="training_audio_count">Verfügbare Audioaufnahmen: %d</string>
+    
+    <!-- TTS -->
+    <string name="tts_title">Text zu Sprache</string>
+    <string name="tts_input_hint">Geben Sie den Text ein, der gesprochen werden soll...</string>
+    <string name="tts_generate">Sprache generieren</string>
+    <string name="tts_play">Abspielen</string>
+    <string name="tts_save">Audio speichern</string>
+    <string name="tts_share">Teilen</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_audio_quality">Audio-Qualität</string>
+    <string name="settings_sample_rate">Sample-Rate</string>
+    <string name="settings_bit_rate">Bit-Rate</string>
+    <string name="settings_model_quality">Modell-Qualität</string>
+    <string name="settings_processing_power">Verarbeitungsleistung</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="error">Fehler</string>
+    <string name="success">Erfolgreich</string>
+    <string name="loading">Laden...</string>
+    
+    <!-- Permissions -->
+    <string name="permission_audio_title">Mikrofon-Berechtigung erforderlich</string>
+    <string name="permission_audio_message">Diese App benötigt Zugriff auf das Mikrofon, um Ihre Stimme aufzunehmen.</string>
+    <string name="permission_storage_title">Speicher-Berechtigung erforderlich</string>
+    <string name="permission_storage_message">Diese App benötigt Zugriff auf den Speicher, um Audiodateien zu speichern und zu laden.</string>
+</resources>

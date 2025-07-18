@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sample Rate Arrays -->
+    <string-array name="sample_rate_entries">
+        <item>22.1 kHz (Niedrig)</item>
+        <item>44.1 kHz (Standard)</item>
+        <item>48 kHz (Hoch)</item>
+        <item>96 kHz (Sehr hoch)</item>
+    </string-array>
+
+    <string-array name="sample_rate_values">
+        <item>22050</item>
+        <item>44100</item>
+        <item>48000</item>
+        <item>96000</item>
+    </string-array>
+
+    <!-- Bit Rate Arrays -->
+    <string-array name="bit_rate_entries">
+        <item>64 kbps (Niedrig)</item>
+        <item>128 kbps (Standard)</item>
+        <item>192 kbps (Hoch)</item>
+        <item>320 kbps (Sehr hoch)</item>
+    </string-array>
+
+    <string-array name="bit_rate_values">
+        <item>64</item>
+        <item>128</item>
+        <item>192</item>
+        <item>320</item>
+    </string-array>
+
+    <!-- Model Quality Arrays -->
+    <string-array name="model_quality_entries">
+        <item>Schnell (Niedrige Qualität)</item>
+        <item>Ausgewogen (Mittlere Qualität)</item>
+        <item>Hoch (Hohe Qualität)</item>
+        <item>Perfekt (Beste Qualität)</item>
+    </string-array>
+
+    <string-array name="model_quality_values">
+        <item>fast</item>
+        <item>balanced</item>
+        <item>high</item>
+        <item>perfect</item>
+    </string-array>
+
+    <!-- Processing Power Arrays -->
+    <string-array name="processing_power_entries">
+        <item>Sparsam (Batterie schonen)</item>
+        <item>Ausgewogen (Empfohlen)</item>
+        <item>Leistung (Schneller)</item>
+        <item>Maximum (Beste Performance)</item>
+    </string-array>
+
+    <string-array name="processing_power_values">
+        <item>eco</item>
+        <item>balanced</item>
+        <item>performance</item>
+        <item>maximum</item>
+    </string-array>
+</resources>
