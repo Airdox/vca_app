@@ -1,0 +1,34 @@
+com.yourcompany.myvoiceapp-material-1.12.0-0 C:\Users\User\.gradle\caches\8.14.2\transforms\005de9b9b5db17270d3e2e87bb130584\transformed\material-1.12.0\res
+com.yourcompany.myvoiceapp-core-ktx-1.13.1-1 C:\Users\User\.gradle\caches\8.14.2\transforms\11ba1a3efb60842f607fdc43bb20fd57\transformed\core-ktx-1.13.1\res
+com.yourcompany.myvoiceapp-constraintlayout-2.1.4-2 C:\Users\User\.gradle\caches\8.14.2\transforms\1aadfaf1d25bfdbe4bc3be3cc5110ddb\transformed\constraintlayout-2.1.4\res
+com.yourcompany.myvoiceapp-appcompat-1.6.1-3 C:\Users\User\.gradle\caches\8.14.2\transforms\25f283a6caf80e7e85ee290ee6723148\transformed\appcompat-1.6.1\res
+com.yourcompany.myvoiceapp-lifecycle-livedata-2.6.2-4 C:\Users\User\.gradle\caches\8.14.2\transforms\3160c9d2704c9814202345f2742800fe\transformed\lifecycle-livedata-2.6.2\res
+com.yourcompany.myvoiceapp-viewpager2-1.0.0-5 C:\Users\User\.gradle\caches\8.14.2\transforms\3948a902500ad92112646fc7aa728005\transformed\viewpager2-1.0.0\res
+com.yourcompany.myvoiceapp-lifecycle-viewmodel-2.6.2-6 C:\Users\User\.gradle\caches\8.14.2\transforms\3b3c20255711b77452c43d6069fa4a6a\transformed\lifecycle-viewmodel-2.6.2\res
+com.yourcompany.myvoiceapp-lifecycle-runtime-2.6.2-7 C:\Users\User\.gradle\caches\8.14.2\transforms\54dca4d48aae032beeeca9bc4837ca78\transformed\lifecycle-runtime-2.6.2\res
+com.yourcompany.myvoiceapp-lifecycle-process-2.6.2-8 C:\Users\User\.gradle\caches\8.14.2\transforms\5acd008f1b82665a9a8592a5111088e9\transformed\lifecycle-process-2.6.2\res
+com.yourcompany.myvoiceapp-startup-runtime-1.1.1-9 C:\Users\User\.gradle\caches\8.14.2\transforms\63e0a18ddfef17f56c188b8e611b21dc\transformed\startup-runtime-1.1.1\res
+com.yourcompany.myvoiceapp-lifecycle-livedata-core-2.6.2-10 C:\Users\User\.gradle\caches\8.14.2\transforms\6a4511dd24ee14ab49436b56c66895fa\transformed\lifecycle-livedata-core-2.6.2\res
+com.yourcompany.myvoiceapp-emoji2-views-helper-1.2.0-11 C:\Users\User\.gradle\caches\8.14.2\transforms\717aa855799e25ac519bcd9fec192137\transformed\emoji2-views-helper-1.2.0\res
+com.yourcompany.myvoiceapp-recyclerview-1.1.0-12 C:\Users\User\.gradle\caches\8.14.2\transforms\75a0c17da7e5af2d570deb1e5c70a255\transformed\recyclerview-1.1.0\res
+com.yourcompany.myvoiceapp-emoji2-1.2.0-13 C:\Users\User\.gradle\caches\8.14.2\transforms\80d947c727e408e258d803dc4a3f157d\transformed\emoji2-1.2.0\res
+com.yourcompany.myvoiceapp-cardview-1.0.0-14 C:\Users\User\.gradle\caches\8.14.2\transforms\87cea3d094b898c58fda6e7cb15c6275\transformed\cardview-1.0.0\res
+com.yourcompany.myvoiceapp-annotation-experimental-1.4.0-15 C:\Users\User\.gradle\caches\8.14.2\transforms\9bd13a7e3219802b41ef5f92642223ab\transformed\annotation-experimental-1.4.0\res
+com.yourcompany.myvoiceapp-activity-1.8.0-16 C:\Users\User\.gradle\caches\8.14.2\transforms\9bd860633888c1977bdba740f688fd10\transformed\activity-1.8.0\res
+com.yourcompany.myvoiceapp-fragment-1.3.6-17 C:\Users\User\.gradle\caches\8.14.2\transforms\a8bf5ce46aa45f539dac489ad96b59ec\transformed\fragment-1.3.6\res
+com.yourcompany.myvoiceapp-lifecycle-viewmodel-savedstate-2.6.2-18 C:\Users\User\.gradle\caches\8.14.2\transforms\b5a470fbd7c2fc0d545d1a4615849a26\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
+com.yourcompany.myvoiceapp-transition-1.5.0-19 C:\Users\User\.gradle\caches\8.14.2\transforms\bc14ac2c3944ebb949d07639492c6aab\transformed\transition-1.5.0\res
+com.yourcompany.myvoiceapp-core-runtime-2.2.0-20 C:\Users\User\.gradle\caches\8.14.2\transforms\bc6d43b17c1179434717ee8aef9a0e5e\transformed\core-runtime-2.2.0\res
+com.yourcompany.myvoiceapp-savedstate-1.2.1-21 C:\Users\User\.gradle\caches\8.14.2\transforms\c221f183acbbd47ad45e3c79a9f16c47\transformed\savedstate-1.2.1\res
+com.yourcompany.myvoiceapp-coordinatorlayout-1.1.0-22 C:\Users\User\.gradle\caches\8.14.2\transforms\c870734a9f4437b7fc66cc38e8f6b460\transformed\coordinatorlayout-1.1.0\res
+com.yourcompany.myvoiceapp-core-1.13.1-23 C:\Users\User\.gradle\caches\8.14.2\transforms\d4cb6a5d206e56719275414528c05bfc\transformed\core-1.13.1\res
+com.yourcompany.myvoiceapp-profileinstaller-1.3.0-24 C:\Users\User\.gradle\caches\8.14.2\transforms\d9640beed8a93db010b104b6bfab4b23\transformed\profileinstaller-1.3.0\res
+com.yourcompany.myvoiceapp-drawerlayout-1.1.1-25 C:\Users\User\.gradle\caches\8.14.2\transforms\e72c0ffd66068f1812683a87b466851e\transformed\drawerlayout-1.1.1\res
+com.yourcompany.myvoiceapp-appcompat-resources-1.6.1-26 C:\Users\User\.gradle\caches\8.14.2\transforms\fbc7bbd0bfdd981904325bb9d176cee9\transformed\appcompat-resources-1.6.1\res
+com.yourcompany.myvoiceapp-pngs-27 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\build\generated\res\pngs\release
+com.yourcompany.myvoiceapp-resValues-28 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\build\generated\res\resValues\release
+com.yourcompany.myvoiceapp-packageReleaseResources-29 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.yourcompany.myvoiceapp-packageReleaseResources-30 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.yourcompany.myvoiceapp-release-31 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.yourcompany.myvoiceapp-main-32 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\src\main\res
+com.yourcompany.myvoiceapp-release-33 C:\Users\User\Desktop\Meine projekete\neutest\vca_app-1\app\src\release\res

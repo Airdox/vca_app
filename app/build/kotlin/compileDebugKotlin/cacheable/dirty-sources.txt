@@ -1,2 +1,0 @@
-/workspace/vca_app/app/src/main/java/com/yourcompany.myvoiceapp/MainActivity.kt
-/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt

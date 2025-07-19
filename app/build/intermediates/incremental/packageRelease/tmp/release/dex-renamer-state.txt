@@ -1,0 +1,4 @@
+#Sat Jul 19 13:11:56 CEST 2025
+base.0=C\:\\Users\\User\\Desktop\\Meine projekete\\neutest\\vca_app-1\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
