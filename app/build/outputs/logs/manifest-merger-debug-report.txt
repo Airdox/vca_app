@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-27:12
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.android.material:material:1.12.0] /workspace/.gradle/caches/8.14.2/transforms/005de9b9b5db17270d3e2e87bb130584/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /workspace/.gradle/caches/8.14.2/transforms/1aadfaf1d25bfdbe4bc3be3cc5110ddb/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /workspace/.gradle/caches/8.14.2/transforms/fbc7bbd0bfdd981904325bb9d176cee9/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -64,14 +64,14 @@ ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:6:5-108
 	android:name
 		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:6:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:8:5-107
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:7:5-107
 	android:maxSdkVersion
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:8:78-104
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:7:78-104
 	android:name
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:8:22-77
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:7:22-77
 application
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:10:5-25:19
-INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:10:5-25:19
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:9:5-24:19
+INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml:9:5-24:19
 MERGED from [com.google.android.material:material:1.12.0] /workspace/.gradle/caches/8.14.2/transforms/005de9b9b5db17270d3e2e87bb130584/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /workspace/.gradle/caches/8.14.2/transforms/005de9b9b5db17270d3e2e87bb130584/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /workspace/.gradle/caches/8.14.2/transforms/1aadfaf1d25bfdbe4bc3be3cc5110ddb/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -93,33 +93,33 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /workspace/.gradle/caches/8
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /workspace/.gradle/caches/8.14.2/transforms/d4cb6a5d206e56719275414528c05bfc/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:15:9-35
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:13:9-41
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:14:9-54
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:12:9-43
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:16:9-55
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:15:9-55
 activity#com.yourcompany.myvoiceapp.MainActivity
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:17:9-24:20
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:16:9-23:20
 	android:exported
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:19:13-36
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:18:13-36
 	android:name
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:18:13-41
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:20:13-23:29
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:19:13-22:29
 action#android.intent.action.MAIN
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:21:17-69
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:21:25-66
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /workspace/vca_app/app/src/main/AndroidManifest.xml:21:27-74
 uses-sdk
 INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /workspace/vca_app/app/src/main/AndroidManifest.xml

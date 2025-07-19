@@ -3450,6 +3450,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id playButton
 id position
 id postLayout
 id pressed
@@ -3457,6 +3458,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id recordButton
 id rectangles
 id report_drawn
 id reverseSawtooth
@@ -3522,7 +3524,10 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id statusTextView
 id stop
+id stopPlayButton
+id stopRecordButton
 id stretch
 id submenuarrow
 id submit_area

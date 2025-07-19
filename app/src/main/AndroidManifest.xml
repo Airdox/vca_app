@@ -4,7 +4,6 @@
     <!-- Berechtigungen für Audioaufnahme und Speicherung -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
-    <!-- maxSdkVersion="28" für WRITE_EXTERNAL_STORAGE ist wichtig für Scoped Storage auf neueren Android-Versionen -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
     <application

@@ -7,6 +7,11 @@ color purple_700
 color teal_200
 color teal_700
 color white
+id playButton
+id recordButton
+id statusTextView
+id stopPlayButton
+id stopRecordButton
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round
