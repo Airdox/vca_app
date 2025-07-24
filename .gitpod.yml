@@ -5,27 +5,31 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - name: Setup Java and Build
-    # Der 'init'-Schritt wird einmalig beim ersten Start des Workspaces ausgeführt.
+  - name: Setup Java and Android SDK and Build
     init: |
+      echo "--- Initialisiere Java-Umgebung ---"
       # Installiere und aktiviere Java 17 mit sdkman.
       # Wir verwenden 'tem' (Temurin), eine gängige OpenJDK-Distribution.
       # Wenn 17.0.10 nicht verfügbar ist oder du eine andere möchtest,
       # kannst du 'sdk list java' im Terminal ausführen, um verfügbare Versionen zu sehen.
       sdk install java 17.0.10-tem || true
       sdk use java 17.0.10-tem
-      echo "Java Version nach sdkman-Konfiguration:"
+      echo "Java Version nach sdkman-Konfiguration (init-Phase):"
       java -version
       
-      # Führe dann deinen Gradle-Build aus.
+      echo "--- Konfiguriere Android SDK ---"
+      # Setze ANDROID_HOME für das Android SDK
+      # Der Pfad /usr/local/android-sdk ist ein gängiger Ort in Gitpod-Umgebungen.
+      export ANDROID_HOME="/usr/local/android-sdk"
+      export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+      
+      echo "ANDROID_HOME gesetzt auf: $ANDROID_HOME"
+      echo "PATH angepasst."
+      
+      echo "--- Starte Gradle Build ---"
       ./gradlew build
-    # Der 'command'-Schritt wird bei jedem Start des Workspaces ausgeführt,
-    # nachdem 'init' abgeschlossen ist (oder wenn 'init' schon gelaufen ist).
-    # Hier lassen wir ihn leer, da der Build schon im 'init'-Schritt läuft.
-    # Du könntest hier auch z.B. './gradlew run' oder 'npm start' etc. reinlegen.
+      echo "--- Gradle Build beendet ---"
     command: |
-      # Optional: Wenn du den Build nicht jedes Mal beim Start ausführen möchtest,
-      # kannst du ihn aus 'init' entfernen und nur hier reinlegen.
-      # Für den ersten Build und die Überprüfung lassen wir ihn im 'init' und lassen dies leer.
       echo "Bereit für Entwicklung. Build sollte bereits gelaufen sein."
-
+      # Du könntest hier einen Entwicklungs-Server starten, z.B. ./gradlew run oder npm start
+      # Lass es vorerst so, da der Build im 'init' läuft.
