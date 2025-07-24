@@ -8,10 +8,6 @@ tasks:
   - name: Setup Java and Android SDK and Build
     init: |
       echo "--- Initialisiere Java-Umgebung ---"
-      # Installiere und aktiviere Java 17 mit sdkman.
-      # Wir verwenden 'tem' (Temurin), eine gängige OpenJDK-Distribution.
-      # Wenn 17.0.10 nicht verfügbar ist oder du eine andere möchtest,
-      # kannst du 'sdk list java' im Terminal ausführen, um verfügbare Versionen zu sehen.
       sdk install java 17.0.10-tem || true
       sdk use java 17.0.10-tem
       echo "Java Version nach sdkman-Konfiguration (init-Phase):"
@@ -21,15 +17,28 @@ tasks:
       # Setze ANDROID_HOME für das Android SDK
       # Der Pfad /usr/local/android-sdk ist ein gängiger Ort in Gitpod-Umgebungen.
       export ANDROID_HOME="/usr/local/android-sdk"
+      
+      # Erstelle das Verzeichnis, falls es nicht existiert
+      mkdir -p "$ANDROID_HOME"
+      
+      # Installiere Android Command Line Tools und Platform-Tools
+      # Dies wird eine Weile dauern!
+      echo "Installiere Android SDK Command Line Tools und Platform-Tools..."
+      yes | /opt/android/sdk/cmdline-tools/latest/bin/sdkmanager --install "cmdline-tools;latest" "platform-tools" "build-tools;34.0.0" "platforms;android-34"
+      
+      # Akzeptiere die Android SDK Lizenzen
+      echo "Akzeptiere Android SDK Lizenzen..."
+      yes | /opt/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+      
+      # Füge die Tools zum PATH hinzu
       export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
       
       echo "ANDROID_HOME gesetzt auf: $ANDROID_HOME"
       echo "PATH angepasst."
+      echo "Android SDK Installation abgeschlossen."
       
       echo "--- Starte Gradle Build ---"
       ./gradlew build
       echo "--- Gradle Build beendet ---"
     command: |
       echo "Bereit für Entwicklung. Build sollte bereits gelaufen sein."
-      # Du könntest hier einen Entwicklungs-Server starten, z.B. ./gradlew run oder npm start
-      # Lass es vorerst so, da der Build im 'init' läuft.
