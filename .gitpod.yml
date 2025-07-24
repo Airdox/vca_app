@@ -5,15 +5,20 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 image:
-  file: .gitpod.Dockerfile # Fügt diese Zeile hinzu, um das Dockerfile zu verwenden
+  file: .gitpod.Dockerfile # Verwendet das Dockerfile für Basisinstallationen
 
 tasks:
-  - name: Build Project
+  - name: Setup Java and Build
     init: |
-      echo "--- Initialisierung abgeschlossen durch Dockerfile ---"
-      echo "Java Version im Workspace:"
+      echo "--- Überprüfung und Finalisierung der Java-Umgebung ---"
+      # Stelle sicher, dass Java 17 mit sdkman aktiv ist, da das Basis-Image oder frühere Konfigurationen Java 11 setzen könnten.
+      sdk install java 17.0.10-tem || true
+      sdk use java 17.0.10-tem
+      echo "Java Version nach sdkman-Konfiguration (init-Phase):"
       java -version
-      echo "ANDROID_HOME im Workspace: $ANDROID_HOME"
+      
+      echo "ANDROID_HOME im Workspace: $ANDROID_HOME" # ANDROID_HOME sollte jetzt vom Dockerfile gesetzt sein.
+      
       echo "--- Starte Gradle Build ---"
       ./gradlew build
       echo "--- Gradle Build beendet ---"
