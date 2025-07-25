@@ -1,82 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/statusTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/appTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Bereit für Sprachklon!"
-        android:textSize="24sp"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/recordButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <!-- Buttons für Aufnahme -->
-    <Button
-        android:id="@+id/recordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aufnehmen"
-        android:padding="12dp"
-        android:textSize="18sp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/playButton"
-        app:layout_constraintEnd_toStartOf="@+id/stopRecordButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/stopRecordButton"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Aufnahme stoppen"
-        android:padding="12dp"
-        android:textSize="18sp"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/stopPlayButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recordButton"
-        app:layout_constraintTop_toBottomOf="@+id/statusTextView" />
-
-    <!-- Buttons für Wiedergabe -->
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abspielen"
-        android:padding="12dp"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/stopPlayButton"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:text="Bereit für Aufnahme"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recordButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/stopPlayButton"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Wiedergabe stoppen"
-        android:padding="12dp"
-        android:textSize="18sp"
+        android:hint="Text zum Klonen eingeben"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/statusTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textToCloneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top"
+            android:textColor="?attr/colorOnSurface"
+            android:textColorHint="?attr/colorOnSurfaceVariant" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/recordButtonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recordButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Aufnehmen"
+            android:layout_marginEnd="8dp"
+            app:icon="@drawable/ic_mic"
+            app:iconGravity="textStart"
+            style="@style/Widget.Material3.Button.Icon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/stopRecordButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stop Aufnahme"
+            app:icon="@drawable/ic_stop"
+            app:iconGravity="textStart"
+            style="@style/Widget.Material3.Button.OutlinedButton.Icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playButtonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recordButtonsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/playButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wiedergabe"
+            android:layout_marginEnd="8dp"
+            app:icon="@drawable/ic_play"
+            app:iconGravity="textStart"
+            style="@style/Widget.Material3.Button.Icon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/stopPlayButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stop Wiedergabe"
+            app:icon="@drawable/ic_stop"
+            app:iconGravity="textStart"
+            style="@style/Widget.Material3.Button.OutlinedButton.Icon" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cloneVoiceButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Stimme klonen"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/playButtonsLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/playButton"
-        app:layout_constraintTop_toBottomOf="@+id/stopRecordButton" />
+        style="@style/Widget.Material3.Button.ElevatedButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
