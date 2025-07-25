@@ -1,3 +1,4 @@
+com.yourcompany.myvoiceapp:xml/backup_rules = 0x7f120000
 com.yourcompany.myvoiceapp:styleable/ViewStubCompat = 0x7f110096
 com.yourcompany.myvoiceapp:styleable/ViewPager2 = 0x7f110095
 com.yourcompany.myvoiceapp:styleable/ViewBackgroundHelper = 0x7f110094
@@ -4154,6 +4155,7 @@ com.yourcompany.myvoiceapp:attr/maxAcceleration = 0x7f030301
 com.yourcompany.myvoiceapp:attr/materialTimePickerStyle = 0x7f0302fe
 com.yourcompany.myvoiceapp:attr/materialSwitchStyle = 0x7f0302fc
 com.yourcompany.myvoiceapp:attr/textAppearanceCaption = 0x7f030433
+com.yourcompany.myvoiceapp:xml/data_extraction_rules = 0x7f120001
 com.yourcompany.myvoiceapp:id/counterclockwise = 0x7f080083
 com.yourcompany.myvoiceapp:color/mtrl_textinput_filled_box_default_background_color = 0x7f0502eb
 com.yourcompany.myvoiceapp:styleable/RangeSlider = 0x7f110073
