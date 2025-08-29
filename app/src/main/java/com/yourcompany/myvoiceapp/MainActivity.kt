@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 
         try {
             // Systematische Dateibenennung: recording_0000.m4a, recording_0001.m4a, ...
-            val fileName = String.format("recording_%04d.m4a", recordingCounter)
+            val fileName = String.format(Locale.ROOT, "recording_%04d.m4a", recordingCounter)
             val audioFile = File(getExternalFilesDir(null), fileName) // Speichern im App-spezifischen Verzeichnis
             audioFilePath = audioFile.absolutePath
             recordingCounter++ // Zähler für die nächste Aufnahme erhöhen
@@ -179,14 +179,14 @@ class MainActivity : AppCompatActivity() {
 
         } catch (e: IOException) {
             Log.e(LOG_TAG, "startRecording: prepare() failed", e)
-            statusTextView.text = getString(R.string.error_recording_failed_status, e.localizedMessage)
+            statusTextView.text = getString(R.string.error_recording_failed, e.localizedMessage)
             Toast.makeText(this, getString(R.string.error_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             isRecording = false
             updateButtonStates()
         } catch (e: IllegalStateException) {
             Log.e(LOG_TAG, "startRecording: start() failed, state error", e)
             statusTextView.text = getString(R.string.error_start_recording_failed_status, e.localizedMessage)
-            Toast.makeText(this, getString(R.string.error_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.error_start_recording_failed_status, e.localizedMessage), Toast.LENGTH_LONG).show()
             isRecording = false
             updateButtonStates()
         }
@@ -213,7 +213,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: RuntimeException) {
             Log.e(LOG_TAG, "stopRecording: stop() failed or release() failed", e)
             statusTextView.text = getString(R.string.error_stop_recording_failed_status, e.localizedMessage)
-            Toast.makeText(this, getString(R.string.error_stop_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.error_stop_recording_failed_status, e.localizedMessage), Toast.LENGTH_LONG).show()
             mediaRecorder = null
             isRecording = false
             updateButtonStates()
@@ -222,46 +222,50 @@ class MainActivity : AppCompatActivity() {
 
     // Wiedergabe starten
     private fun startPlaying() {
-        if (audioFilePath == null || !File(audioFilePath!!).exists()) {
-            Toast.makeText(this, R.string.toast_no_recording_to_play, Toast.LENGTH_SHORT).show()
-            Log.w(LOG_TAG, "startPlaying: Kein audioFilePath oder Datei existiert nicht.")
-            return
-        }
-
         if (isPlaying) {
             Toast.makeText(this, R.string.toast_playback_already_running, Toast.LENGTH_SHORT).show()
             return
         }
 
-        try {
-            mediaPlayer = MediaPlayer().apply {
-                setDataSource(audioFilePath)
-                prepare()
-                start()
-                setOnCompletionListener {
-                    Log.d(LOG_TAG, "startPlaying: Wiedergabe beendet.")
-                    stopPlaying()
+        audioFilePath?.let { path ->
+            if (File(path).exists()) {
+                try {
+                    mediaPlayer = MediaPlayer().apply {
+                        setDataSource(path)
+                        prepare()
+                        start()
+                        setOnCompletionListener {
+                            Log.d(LOG_TAG, "startPlaying: Wiedergabe beendet.")
+                            stopPlaying()
+                        }
+                    }
+
+                    isPlaying = true
+                    updateButtonStates()
+                    statusTextView.text = getString(R.string.status_playing)
+                    Toast.makeText(this, R.string.toast_playback_started, Toast.LENGTH_SHORT).show()
+                    Log.d(LOG_TAG, "startPlaying: Wiedergabe erfolgreich gestartet.")
+
+                } catch (e: IOException) {
+                    Log.e(LOG_TAG, "startPlaying: prepare() failed", e)
+                    statusTextView.text = getString(R.string.error_playback_failed_status, e.localizedMessage)
+                    Toast.makeText(this, getString(R.string.error_playback_failed_status, e.localizedMessage), Toast.LENGTH_LONG).show()
+                    isPlaying = false
+                    updateButtonStates()
+                } catch (e: IllegalStateException) {
+                    Log.e(LOG_TAG, "startPlaying: start() failed, state error", e)
+                    statusTextView.text = getString(R.string.error_start_playback_failed_status, e.localizedMessage)
+                    Toast.makeText(this, getString(R.string.error_start_playback_failed_status, e.localizedMessage), Toast.LENGTH_LONG).show()
+                    isPlaying = false
+                    updateButtonStates()
                 }
+            } else {
+                Toast.makeText(this, R.string.toast_no_recording_to_play, Toast.LENGTH_SHORT).show()
+                Log.w(LOG_TAG, "startPlaying: Datei existiert nicht unter Pfad: $path")
             }
-
-            isPlaying = true
-            updateButtonStates()
-            statusTextView.text = getString(R.string.status_playing)
-            Toast.makeText(this, R.string.toast_playback_started, Toast.LENGTH_SHORT).show()
-            Log.d(LOG_TAG, "startPlaying: Wiedergabe erfolgreich gestartet.")
-
-        } catch (e: IOException) {
-            Log.e(LOG_TAG, "startPlaying: prepare() failed", e)
-            statusTextView.text = getString(R.string.error_playback_failed_status, e.localizedMessage)
-            Toast.makeText(this, getString(R.string.error_playback_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
-            isPlaying = false
-            updateButtonStates()
-        } catch (e: IllegalStateException) {
-            Log.e(LOG_TAG, "startPlaying: start() failed, state error", e)
-            statusTextView.text = getString(R.string.error_start_playback_failed_status, e.localizedMessage)
-            Toast.makeText(this, getString(R.string.error_start_playback_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
-            isPlaying = false
-            updateButtonStates()
+        } ?: run {
+            Toast.makeText(this, R.string.toast_no_recording_to_play, Toast.LENGTH_SHORT).show()
+            Log.w(LOG_TAG, "startPlaying: Kein audioFilePath vorhanden.")
         }
     }
 
@@ -290,9 +294,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateButtonStates() {
         recordButton.isEnabled = !isRecording && !isPlaying
         stopRecordButton.isEnabled = isRecording
-        playButton.isEnabled = !isRecording && !isPlaying && audioFilePath != null && File(audioFilePath!!).exists()
+        val audioFileExists = audioFilePath?.let { File(it).exists() } ?: false
+        playButton.isEnabled = !isRecording && !isPlaying && audioFileExists
         stopPlayButton.isEnabled = isPlaying
-        Log.d(LOG_TAG, "updateButtonStates: isRecording=$isRecording, isPlaying=$isPlaying, audioFileExists=${audioFilePath != null && File(audioFilePath!!).exists()}")
+        Log.d(
+            LOG_TAG,
+            "updateButtonStates: isRecording=$isRecording, isPlaying=$isPlaying, audioFileExists=$audioFileExists"
+        )
     }
 
     // Lebenszyklus-Methoden zum Freigeben von Ressourcen

@@ -481,6 +481,8 @@
         <enum name="startVertical" value="1"/>
         <enum name="startHorizontal" value="2"/>
         <enum name="flip" value="3"/>
+        <enum name="below" value="4"/>
+        <enum name="above" value="5"/>
     </attr>
     <attr format="float" name="path_percent"/>
     <attr format="float" name="perpendicularPath_percent"/>
@@ -639,7 +641,6 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <color name="black">#FF000000</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -946,15 +947,12 @@
     <color name="md_theme_onTertiary">#FFFFFF</color>
     <color name="md_theme_onTertiaryContainer">#31111D</color>
     <color name="md_theme_outline">#79747E</color>
-    <color name="md_theme_outlineVariant">#CAC4D0</color>
     <color name="md_theme_primary">#6750A4</color>
     <color name="md_theme_primaryContainer">#EADDFF</color>
-    <color name="md_theme_scrim">#000000</color>
     <color name="md_theme_secondary">#625B71</color>
     <color name="md_theme_secondaryContainer">#E8DEF8</color>
     <color name="md_theme_shadow">#000000</color>
     <color name="md_theme_surface">#FFFBFE</color>
-    <color name="md_theme_surfaceTint">#6750A4</color>
     <color name="md_theme_surfaceVariant">#E7E0EC</color>
     <color name="md_theme_tertiary">#7D5260</color>
     <color name="md_theme_tertiaryContainer">#FFD8E4</color>
@@ -976,9 +974,6 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
@@ -989,11 +984,8 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
-    <color name="white">#FFFFFFFF</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -2031,10 +2023,17 @@
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="clone_text_hint">Text zum Klonen eingeben</string>
+    <string name="clone_voice_button">Stimme klonen</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_playback_failed_status">Fehler bei der Wiedergabe: %s</string>
+    <string name="error_recording_failed">Aufnahme fehlgeschlagen: %s</string>
+    <string name="error_start_playback_failed_status">Fehler beim Start der Wiedergabe: %s</string>
+    <string name="error_start_recording_failed_status">Fehler beim Start der Aufnahme: %s</string>
+    <string name="error_stop_recording_failed_status">Fehler beim Stoppen: %s</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
@@ -2152,6 +2151,8 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="play_button">Wiedergabe</string>
+    <string name="record_button">Aufnehmen</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
@@ -2161,6 +2162,24 @@
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="status_playback_stopped">Wiedergabe gestoppt</string>
+    <string name="status_playing">Wiedergabe läuft...</string>
+    <string name="status_ready">Bereit für Aufnahme</string>
+    <string name="status_recording">Aufnahme läuft...</string>
+    <string name="status_recording_stopped">Aufnahme gestoppt</string>
+    <string name="stop_play_button">Stop Wiedergabe</string>
+    <string name="stop_record_button">Stop Aufnahme</string>
+    <string name="toast_missing_permission_to_record">Mikrofonberechtigung nicht erteilt. Bitte erteilen Sie diese, um aufzunehmen.</string>
+    <string name="toast_no_recording_to_play">Keine Aufnahme zum Abspielen vorhanden</string>
+    <string name="toast_permissions_already_granted">Alle Berechtigungen bereits erteilt.</string>
+    <string name="toast_permissions_denied">Berechtigungen verweigert. App kann nicht alle Funktionen nutzen.</string>
+    <string name="toast_permissions_granted">Alle Berechtigungen erteilt!</string>
+    <string name="toast_playback_already_running">Wiedergabe läuft bereits</string>
+    <string name="toast_playback_started">Wiedergabe gestartet</string>
+    <string name="toast_playback_stopped">Wiedergabe beendet</string>
+    <string name="toast_recording_already_running">Aufnahme läuft bereits!</string>
+    <string name="toast_recording_started">Aufnahme gestartet</string>
+    <string name="toast_recording_stopped">Aufnahme beendet</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -11124,6 +11143,7 @@
     </declare-styleable>
     <declare-styleable name="ConstraintSet">
         <attr format="reference" name="deriveConstraintsFrom"/>
+        <attr format="string" name="stateLabels"/>
         <attr format="enum" name="constraintRotate">
             <enum name="none" value="0"/>
             <enum name="right" value="1"/>
@@ -11583,6 +11603,22 @@
         
         <attr name="android:color"/>
     </declare-styleable>
+    <declare-styleable name="Grid">
+        <attr format="integer" name="grid_rows"/>
+        <attr format="integer" name="grid_columns"/>
+        <attr format="string" name="grid_spans"/>
+        <attr format="string" name="grid_skips"/>
+        <attr format="string" name="grid_rowWeights"/>
+        <attr format="string" name="grid_columnWeights"/>
+        <attr format="enum" name="grid_orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr format="dimension" name="grid_horizontalGaps"/>
+        <attr format="dimension" name="grid_verticalGaps"/>
+        <attr format="boolean" name="grid_validateInputs"/>
+        <attr format="boolean" name="grid_useRtl"/>
+    </declare-styleable>
     <declare-styleable name="ImageFilterView">
         <attr format="reference" name="blendSrc"/>
         <attr format="reference" name="altSrc"/>
@@ -11673,6 +11709,7 @@
             <enum name="deltaRelative" value="0"/>
             <enum name="pathRelative" value="1"/>
             <enum name="parentRelative" value="2"/>
+            <enum name="axisRelative" value="3"/>
         </attr>
 
         
