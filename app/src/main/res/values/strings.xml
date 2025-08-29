@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Voice Cloning App</string>
+    <string name="status_ready">Bereit für Aufnahme</string>
+    <string name="status_recording">Aufnahme läuft...</string>
+    <string name="status_recording_stopped">Aufnahme gestoppt</string>
+    <string name="status_playing">Wiedergabe läuft...</string>
+    <string name="status_playback_stopped">Wiedergabe gestoppt</string>
+
+    <string name="clone_text_hint">Text zum Klonen eingeben</string>
+    <string name="record_button">Aufnehmen</string>
+    <string name="stop_record_button">Stop Aufnahme</string>
+    <string name="play_button">Wiedergabe</string>
+    <string name="stop_play_button">Stop Wiedergabe</string>
+    <string name="clone_voice_button">Stimme klonen</string>
+
+    <string name="toast_permissions_granted">Alle Berechtigungen erteilt!</string>
+    <string name="toast_permissions_denied">Berechtigungen verweigert. App kann nicht alle Funktionen nutzen.</string>
+    <string name="toast_permissions_already_granted">Alle Berechtigungen bereits erteilt.</string>
+    <string name="toast_missing_permission_to_record">Mikrofonberechtigung nicht erteilt. Bitte erteilen Sie diese, um aufzunehmen.</string>
+    <string name="toast_recording_already_running">Aufnahme läuft bereits!</string>
+    <string name="toast_recording_started">Aufnahme gestartet</string>
+    <string name="toast_recording_stopped">Aufnahme beendet</string>
+    <string name="toast_no_recording_to_play">Keine Aufnahme zum Abspielen vorhanden</string>
+    <string name="toast_playback_already_running">Wiedergabe läuft bereits</string>
+    <string name="toast_playback_started">Wiedergabe gestartet</string>
+    <string name="toast_playback_stopped">Wiedergabe beendet</string>
+
+    <string name="error_recording_failed">Aufnahme fehlgeschlagen: %s</string>
+    <string name="error_start_recording_failed_status">Fehler beim Start der Aufnahme: %s</string>
+    <string name="error_stop_recording_failed_status">Fehler beim Stoppen: %s</string>
+    <string name="error_playback_failed_status">Fehler bei der Wiedergabe: %s</string>
+    <string name="error_start_playback_failed_status">Fehler beim Start der Wiedergabe: %s</string>
 </resources>

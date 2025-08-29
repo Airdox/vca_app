@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             requestPermissions() // Fordere sie an
         } else {
             // Optional: Zeige eine Toast-Nachricht, wenn Berechtigungen bereits erteilt sind
-            Toast.makeText(this, "Alle Berechtigungen bereits erteilt.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_permissions_already_granted, Toast.LENGTH_SHORT).show()
             Log.d(LOG_TAG, "onCreate: Alle Berechtigungen bereits erteilt.")
         }
 
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d(LOG_TAG, "recordButton: Berechtigungen vorhanden, starte Aufnahme.")
                 startRecording()
             } else {
-                Toast.makeText(this, "Mikrofonberechtigung nicht erteilt. Bitte erteilen Sie diese, um aufzunehmen.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.toast_missing_permission_to_record, Toast.LENGTH_LONG).show()
                 Log.w(LOG_TAG, "recordButton: Mikrofonberechtigung fehlt beim Klick auf Aufnahme-Button.")
             }
         }
@@ -124,10 +124,10 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
             if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
-                Toast.makeText(this, "Alle Berechtigungen erteilt!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_permissions_granted, Toast.LENGTH_SHORT).show()
                 Log.d(LOG_TAG, "onRequestPermissionsResult: Berechtigungen erteilt.")
             } else {
-                Toast.makeText(this, "Berechtigungen verweigert. App kann nicht alle Funktionen nutzen.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.toast_permissions_denied, Toast.LENGTH_LONG).show()
                 Log.w(LOG_TAG, "onRequestPermissionsResult: Berechtigungen verweigert.")
             }
         }
@@ -136,12 +136,12 @@ class MainActivity : AppCompatActivity() {
     // Aufnahme starten
     private fun startRecording() {
         if (isRecording) {
-            Toast.makeText(this, "Aufnahme läuft bereits!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_recording_already_running, Toast.LENGTH_SHORT).show()
             return
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Mikrofonberechtigung nicht erteilt.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.toast_missing_permission_to_record, Toast.LENGTH_LONG).show()
             Log.e(LOG_TAG, "startRecording: Versuch, Aufnahme ohne Berechtigung zu starten.")
             return
         }
@@ -172,20 +172,20 @@ class MainActivity : AppCompatActivity() {
 
             isRecording = true
             updateButtonStates()
-            statusTextView.text = "Aufnahme läuft..."
-            Toast.makeText(this, "Aufnahme gestartet", Toast.LENGTH_SHORT).show()
+            statusTextView.text = getString(R.string.status_recording)
+            Toast.makeText(this, R.string.toast_recording_started, Toast.LENGTH_SHORT).show()
             Log.d(LOG_TAG, "startRecording: Aufnahme erfolgreich gestartet.")
 
         } catch (e: IOException) {
             Log.e(LOG_TAG, "startRecording: prepare() failed", e)
-            statusTextView.text = "Fehler bei der Aufnahme: " + e.localizedMessage
-            Toast.makeText(this, "Aufnahme fehlgeschlagen: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+            statusTextView.text = getString(R.string.error_recording_failed_status, e.localizedMessage)
+            Toast.makeText(this, getString(R.string.error_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             isRecording = false
             updateButtonStates()
         } catch (e: IllegalStateException) {
             Log.e(LOG_TAG, "startRecording: start() failed, state error", e)
-            statusTextView.text = "Fehler beim Start der Aufnahme: " + e.localizedMessage
-            Toast.makeText(this, "Aufnahmestart fehlgeschlagen: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+            statusTextView.text = getString(R.string.error_start_recording_failed_status, e.localizedMessage)
+            Toast.makeText(this, getString(R.string.error_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             isRecording = false
             updateButtonStates()
         }
@@ -206,13 +206,13 @@ class MainActivity : AppCompatActivity() {
             mediaRecorder = null
             isRecording = false
             updateButtonStates()
-            statusTextView.text = "Aufnahme gestoppt"
-            Toast.makeText(this, "Aufnahme beendet", Toast.LENGTH_SHORT).show()
+            statusTextView.text = getString(R.string.status_recording_stopped)
+            Toast.makeText(this, R.string.toast_recording_stopped, Toast.LENGTH_SHORT).show()
             Log.d(LOG_TAG, "stopRecording: Aufnahme erfolgreich gestoppt.")
         } catch (e: RuntimeException) {
             Log.e(LOG_TAG, "stopRecording: stop() failed or release() failed", e)
-            statusTextView.text = "Fehler beim Stoppen: " + e.localizedMessage
-            Toast.makeText(this, "Fehler beim Stoppen der Aufnahme: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+            statusTextView.text = getString(R.string.error_stop_recording_failed_status, e.localizedMessage)
+            Toast.makeText(this, getString(R.string.error_stop_recording_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             mediaRecorder = null
             isRecording = false
             updateButtonStates()
@@ -222,13 +222,13 @@ class MainActivity : AppCompatActivity() {
     // Wiedergabe starten
     private fun startPlaying() {
         if (audioFilePath == null || !File(audioFilePath!!).exists()) {
-            Toast.makeText(this, "Keine Aufnahme zum Abspielen vorhanden", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_no_recording_to_play, Toast.LENGTH_SHORT).show()
             Log.w(LOG_TAG, "startPlaying: Kein audioFilePath oder Datei existiert nicht.")
             return
         }
 
         if (isPlaying) {
-            Toast.makeText(this, "Wiedergabe läuft bereits", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_playback_already_running, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -245,20 +245,20 @@ class MainActivity : AppCompatActivity() {
 
             isPlaying = true
             updateButtonStates()
-            statusTextView.text = "Wiedergabe läuft..."
-            Toast.makeText(this, "Wiedergabe gestartet", Toast.LENGTH_SHORT).show()
+            statusTextView.text = getString(R.string.status_playing)
+            Toast.makeText(this, R.string.toast_playback_started, Toast.LENGTH_SHORT).show()
             Log.d(LOG_TAG, "startPlaying: Wiedergabe erfolgreich gestartet.")
 
         } catch (e: IOException) {
             Log.e(LOG_TAG, "startPlaying: prepare() failed", e)
-            statusTextView.text = "Fehler bei der Wiedergabe: " + e.localizedMessage
-            Toast.makeText(this, "Wiedergabe fehlgeschlagen: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+            statusTextView.text = getString(R.string.error_playback_failed_status, e.localizedMessage)
+            Toast.makeText(this, getString(R.string.error_playback_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             isPlaying = false
             updateButtonStates()
         } catch (e: IllegalStateException) {
             Log.e(LOG_TAG, "startPlaying: start() failed, state error", e)
-            statusTextView.text = "Fehler beim Start der Wiedergabe: " + e.localizedMessage
-            Toast.makeText(this, "Wiedergabestart fehlgeschlagen: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+            statusTextView.text = getString(R.string.error_start_playback_failed_status, e.localizedMessage)
+            Toast.makeText(this, getString(R.string.error_start_playback_failed, e.localizedMessage), Toast.LENGTH_LONG).show()
             isPlaying = false
             updateButtonStates()
         }
@@ -280,8 +280,8 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = null
         isPlaying = false
         updateButtonStates()
-        statusTextView.text = "Wiedergabe gestoppt"
-        Toast.makeText(this, "Wiedergabe beendet", Toast.LENGTH_SHORT).show()
+        statusTextView.text = getString(R.string.status_playback_stopped)
+        Toast.makeText(this, R.string.toast_playback_stopped, Toast.LENGTH_SHORT).show()
         Log.d(LOG_TAG, "stopPlaying: Wiedergabe erfolgreich gestoppt.")
     }
 
