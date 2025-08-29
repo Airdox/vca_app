@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.io.File
 import java.io.IOException
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
