@@ -1,0 +1,220 @@
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:151: Warning: Implicitly using the default locale is a common source of bugs: Use String.format(Locale, ...) instead [DefaultLocale]
+            val fileName = String.format("recording_%04d.m4a", recordingCounter)
+                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/workspace/vca_app/app/build.gradle:35: Warning: A newer version of androidx.core:core-ktx than 1.13.1 is available: 1.17.0 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.13.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/build.gradle:36: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/build.gradle:38: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:7: Warning: Possible overdraw: Root element paints background ?attr/colorSurface with a theme that also paints a background (inferred theme is @style/Theme.MyVoiceCloningApp) [Overdraw]
+    android:background="?attr/colorSurface"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/workspace/vca_app/app/src/main/res/values/colors.xml:31: Warning: The resource R.color.md_theme_shadow appears to be unused [UnusedResources]
+    <color name="md_theme_shadow">#000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:35: Warning: The resource R.color.md_theme_surfaceTint appears to be unused [UnusedResources]
+    <color name="md_theme_surfaceTint">#6750A4</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:36: Warning: The resource R.color.md_theme_outlineVariant appears to be unused [UnusedResources]
+    <color name="md_theme_outlineVariant">#CAC4D0</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:37: Warning: The resource R.color.md_theme_scrim appears to be unused [UnusedResources]
+    <color name="md_theme_scrim">#000000</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:39: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:40: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:41: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:42: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:43: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:44: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#FF000000</color>
+           ~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/values/colors.xml:45: Warning: The resource R.color.white appears to be unused [UnusedResources]
+    <color name="white">#FFFFFFFF</color>
+           ~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/workspace/vca_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png: Warning: The image ic_launcher.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/ic_launcher.png: 1x1 dp (1x1 px), mipmap-mdpi/ic_launcher.png: 1x1 dp (1x1 px), mipmap-xhdpi/ic_launcher.png: 1x1 dp (1x1 px), mipmap-xxhdpi/ic_launcher.png: 0x0 dp (1x1 px), mipmap-xxxhdpi/ic_launcher.png: 0x0 dp (1x1 px) [IconDipSize]
+/workspace/vca_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png: Warning: The image ic_launcher_round.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/ic_launcher_round.png: 1x1 dp (1x1 px), mipmap-mdpi/ic_launcher_round.png: 1x1 dp (1x1 px), mipmap-xhdpi/ic_launcher_round.png: 1x1 dp (1x1 px), mipmap-xxhdpi/ic_launcher_round.png: 0x0 dp (1x1 px), mipmap-xxxhdpi/ic_launcher_round.png: 0x0 dp (1x1 px) [IconDipSize]
+
+   Explanation for issues of type "IconDipSize":
+   Checks the all icons which are provided in multiple densities, all compute
+   to roughly the same density-independent pixel (dip) size. This catches
+   errors where images are either placed in the wrong folder, or icons are
+   changed to new sizes but some folders are forgotten.
+
+/workspace/vca_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png, ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+
+   Explanation for issues of type "IconDuplicates":
+   If an icon is repeated under different names, you can consolidate and just
+   use one of the icons and delete the others to make your application
+   smaller. However, duplicated icons usually are not intentional and can
+   sometimes point to icons that were accidentally overwritten or accidentally
+   not updated.
+
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:175: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Aufnahme läuft..."
+                                   ~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:181: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusTextView.text = "Fehler bei der Aufnahme: " + e.localizedMessage
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:181: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Fehler bei der Aufnahme: " + e.localizedMessage
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:187: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusTextView.text = "Fehler beim Start der Aufnahme: " + e.localizedMessage
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:187: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Fehler beim Start der Aufnahme: " + e.localizedMessage
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:209: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Aufnahme gestoppt"
+                                   ~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:214: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusTextView.text = "Fehler beim Stoppen: " + e.localizedMessage
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:214: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Fehler beim Stoppen: " + e.localizedMessage
+                                   ~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:248: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Wiedergabe läuft..."
+                                   ~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:254: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusTextView.text = "Fehler bei der Wiedergabe: " + e.localizedMessage
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:254: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Fehler bei der Wiedergabe: " + e.localizedMessage
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:260: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            statusTextView.text = "Fehler beim Start der Wiedergabe: " + e.localizedMessage
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:260: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            statusTextView.text = "Fehler beim Start der Wiedergabe: " + e.localizedMessage
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/java/com/yourcompany/myvoiceapp/MainActivity.kt:283: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        statusTextView.text = "Wiedergabe gestoppt"
+                               ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:29: Warning: Hardcoded string "Bereit für Aufnahme", should use @string resource [HardcodedText]
+        android:text="Bereit für Aufnahme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:44: Warning: Hardcoded string "Text zum Klonen eingeben", should use @string resource [HardcodedText]
+        android:hint="Text zum Klonen eingeben"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:77: Warning: Hardcoded string "Aufnehmen", should use @string resource [HardcodedText]
+            android:text="Aufnehmen"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:88: Warning: Hardcoded string "Stop Aufnahme", should use @string resource [HardcodedText]
+            android:text="Stop Aufnahme"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:110: Warning: Hardcoded string "Wiedergabe", should use @string resource [HardcodedText]
+            android:text="Wiedergabe"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:121: Warning: Hardcoded string "Stop Wiedergabe", should use @string resource [HardcodedText]
+            android:text="Stop Wiedergabe"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/vca_app/app/src/main/res/layout/activity_main.xml:131: Warning: Hardcoded string "Stimme klonen", should use @string resource [HardcodedText]
+        android:text="Stimme klonen"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 40 warnings
